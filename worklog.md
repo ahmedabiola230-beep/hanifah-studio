@@ -64,3 +64,20 @@ Stage Summary:
 - Brand mark is now a real SVG logo (sharp at any size, also used as favicon and apple icon)
 - Hanifah's photo appears in the three spots a personal brand needs: About page, home teaser, contact page
 - Photo source is only 60x60, so replacing public/hanifah-photo.png with a higher resolution square photo will instantly upgrade all three spots
+
+---
+Task ID: 4
+Agent: Main agent (Super Z)
+Task: Replace the site photo with Hanifah's new high resolution portrait (About page + home page + contact avatar)
+
+Work Log:
+- Received new photo upload (1981x794 landscape, sharp professional headshot)
+- Built scripts/swap_photo.py: centered a 4:5 crop on the face (x 990), extended top and bottom with mirrored blurred bands for elegant breathing room, resized to 800x1000, saved as public/hanifah-photo.png
+- Verified the first crop was too tight on the face; fixed by adding the mirrored blur extension (90px top, 130px bottom) which blends seamlessly
+- Single asset swap updated all three placements automatically via portrait.tsx: About page portrait card, home About teaser tile, contact page avatar
+- Updated portrait.tsx doc comment (photo is no longer low resolution)
+- QA via agent-browser (1440px): About portrait, home teaser, contact avatar all show the new sharp photo; no page errors, no horizontal overflow; bun run lint clean; dev log clean
+
+Stage Summary:
+- Site photo replaced everywhere with the new high resolution portrait
+- To update again: overwrite public/hanifah-photo.png with a 4:5 crop

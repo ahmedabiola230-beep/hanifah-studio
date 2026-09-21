@@ -6,10 +6,8 @@ export { hanifahPhoto };
 /**
  * Hanifah's portrait, rendered with next/image for automatic sizing.
  *
- * TODO(Hanifah): the current source file public/hanifah-photo.png was
- * enhanced from a very small original photo. When you have a higher
- * resolution photo, simply overwrite public/hanifah-photo.png with it
- * (a square crop works best) and every spot on the site updates.
+ * To update the photo later, replace public/hanifah-photo.png (a
+ * 4:5 portrait crop works best) and every spot on the site updates.
  */
 export function PortraitImage({
   sizes,
