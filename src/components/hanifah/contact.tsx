@@ -1,6 +1,7 @@
-import { Mail, MessageCircle, Clock3 } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { Reveal } from "./reveal";
 import { InquiryForm } from "./inquiry-form";
+import { PortraitImage } from "./portrait";
 import { SITE } from "@/lib/site";
 
 const NEXT_STEPS = [
@@ -99,8 +100,8 @@ export function ContactSection() {
                     </a>
                   </li>
                   <li className="flex items-center gap-3 p-2 text-[0.95rem] font-medium text-ink-600">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-soft ring-1 ring-navy-900/8">
-                      <Clock3 className="h-4.5 w-4.5 text-lavender-600" aria-hidden="true" />
+                    <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-xl bg-white shadow-soft ring-1 ring-navy-900/8">
+                      <PortraitImage sizes="40px" className="object-cover" />
                     </span>
                     I usually reply within one business day
                   </li>

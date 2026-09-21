@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   creator: "Hanifah Studio",
   icons: {
     icon: "/hanifah-logo.svg",
+    apple: "/hanifah-logo-icon.png",
   },
   openGraph: {
     title: "Hanifah Studio | Website Design for Small Businesses",

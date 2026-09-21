@@ -1,5 +1,6 @@
-import { Compass, MessagesSquare, ShieldCheck, UserRound } from "lucide-react";
+import { Compass, MessagesSquare, ShieldCheck } from "lucide-react";
 import { Reveal } from "./reveal";
+import { PortraitImage } from "./portrait";
 import { PAGE_ROUTES } from "@/lib/site";
 
 const PRINCIPLES = [
@@ -37,35 +38,28 @@ export function AboutStory() {
         className="pointer-events-none absolute -left-32 top-24 h-96 w-96 rounded-full bg-lavender-200/40 blur-3xl"
       />
       <div className="site-container relative grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-        {/* Portrait placeholder. TODO(Hanifah): replace with a real photo */}
+        {/* Portrait. TODO(Hanifah): swap in a higher resolution photo
+            by replacing public/hanifah-photo.png whenever you are ready. */}
         <Reveal direction="right">
           <div className="relative mx-auto max-w-sm">
             <div
               aria-hidden="true"
               className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-lavender-300/50 to-lavender-200/20 blur-xl"
             />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-lavender-300/40 bg-gradient-to-br from-navy-900 via-navy-800 to-lavender-900 shadow-lift">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-lavender-300/40 bg-navy-900 shadow-lift">
+              <PortraitImage
+                sizes="(min-width: 1024px) 384px, calc(100vw - 48px)"
+                className="object-cover"
+              />
+              {/* Soft edges so the photo blends into the card */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 opacity-30"
-                style={{
-                  backgroundImage: "radial-gradient(rgb(195 180 246 / 0.35) 1px, transparent 1px)",
-                  backgroundSize: "22px 22px",
-                }}
+                className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-navy-950/25 to-transparent"
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center">
-                <span className="flex h-24 w-24 items-center justify-center rounded-full bg-white/10 ring-1 ring-lavender-300/50 backdrop-blur">
-                  <span className="font-display text-4xl font-extrabold text-lavender-200">H</span>
-                </span>
-                <div>
-                  <p className="font-display text-base font-bold text-white">Hanifah</p>
-                  <p className="mt-1.5 flex items-center justify-center gap-1.5 text-xs leading-relaxed text-navy-100/75">
-                    <UserRound className="h-3.5 w-3.5" aria-hidden="true" />
-                    A real photo of Hanifah will go here
-                  </p>
-                </div>
-              </div>
-              <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy-950/80 to-transparent" />
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-navy-950/60 via-navy-950/15 to-transparent"
+              />
             </div>
             <div className="absolute -bottom-5 left-1/2 w-max -translate-x-1/2 rounded-2xl bg-white px-5 py-3 shadow-lift ring-1 ring-navy-900/8">
               <p className="font-display text-lg font-bold italic text-navy-900">Hanifah</p>

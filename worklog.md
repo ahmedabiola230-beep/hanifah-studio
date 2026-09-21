@@ -46,3 +46,21 @@ Stage Summary:
 - Copy contains no hyphens or em dashes and reads naturally; honesty constraints preserved (concept project labels, hosting/domain disclosures)
 - Placeholders for Hanifah to replace: email, WhatsApp URL, social URLs (src/lib/site.ts), profile photo (about.tsx), portfolio projects (projects.tsx)
 - Page components map 1:1 to routes (src/components/hanifah/pages/), so switching to real filesystem routes on deployment is trivial
+
+---
+Task ID: 3
+Agent: Main agent (Super Z)
+Task: Add a professional custom logo and place Hanifah's real photo across the site
+
+Work Log:
+- Designed a hand crafted SVG monogram (src/components/hanifah/logo.tsx LogoMark): deep navy gradient squircle, luminous lavender H letterform built from three rounded rects with seamless joins, signature four point AI spark plus companion spark, inner sheen and hairline lavender ring; wordmark lockup refined with hover scale micro interaction
+- Replaced public/hanifah-logo.svg with the standalone mark (favicon) and rendered public/hanifah-logo-icon.png (180px apple touch icon) via cairosvg; added apple icon to layout.tsx metadata icons
+- Enhanced uploaded photo upload/ORDER.png (only 60x60 px): 10x Lanczos upscale, unsharp masking, gentle tonal normalization via scripts/enhance_photo.py, saved as public/hanifah-photo.png (600x600)
+- Created src/components/hanifah/portrait.tsx (next/image with blur placeholder + TODO note to swap in a higher resolution photo later)
+- Photo placements: About page portrait card (4/5 frame, soft gradient edges, floating name card), home About teaser tile (rounded photo tile with lavender glow), contact page avatar replacing the clock icon on the reply time line
+- QA via agent-browser (1440px and 390px): header/footer logo rendering, home teaser photo, About portrait, contact avatar, favicon/apple icon/photo all serve 200, no horizontal overflow, no console or page errors; bun run lint clean
+
+Stage Summary:
+- Brand mark is now a real SVG logo (sharp at any size, also used as favicon and apple icon)
+- Hanifah's photo appears in the three spots a personal brand needs: About page, home teaser, contact page
+- Photo source is only 60x60, so replacing public/hanifah-photo.png with a higher resolution square photo will instantly upgrade all three spots

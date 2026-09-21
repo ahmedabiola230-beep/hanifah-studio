@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "./reveal";
+import { PortraitImage } from "./portrait";
 import { PAGE_ROUTES } from "@/lib/site";
 
 /**
@@ -15,23 +16,23 @@ export function AboutTeaser() {
     >
       <div className="site-container">
         <div className="grid items-center gap-10 lg:grid-cols-[auto_1fr] lg:gap-14">
-          {/* Monogram placeholder */}
+          {/* Portrait. TODO(Hanifah): swap in a higher resolution photo
+              by replacing public/hanifah-photo.png whenever you are ready. */}
           <Reveal>
             <div className="relative mx-auto w-max">
               <div
                 aria-hidden="true"
                 className="absolute -inset-6 rounded-full bg-gradient-to-br from-lavender-300/40 to-lavender-200/10 blur-2xl"
               />
-              <div className="relative flex h-36 w-36 items-center justify-center rounded-[2rem] bg-gradient-to-br from-navy-900 via-navy-800 to-lavender-900 shadow-lift ring-1 ring-lavender-300/40 sm:h-44 sm:w-44">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 rounded-[2rem] opacity-30"
-                  style={{
-                    backgroundImage: "radial-gradient(rgb(195 180 246 / 0.35) 1px, transparent 1px)",
-                    backgroundSize: "20px 20px",
-                  }}
+              <div className="relative h-40 w-40 overflow-hidden rounded-[2rem] bg-navy-900 shadow-lift ring-1 ring-lavender-300/40 sm:h-48 sm:w-48">
+                <PortraitImage
+                  sizes="(min-width: 640px) 192px, 160px"
+                  className="object-cover"
                 />
-                <span className="font-display text-6xl font-extrabold text-lavender-200">H</span>
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-navy-950/45 to-transparent"
+                />
               </div>
             </div>
           </Reveal>
