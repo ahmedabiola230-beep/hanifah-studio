@@ -1,7 +1,6 @@
 import { Instagram, Linkedin, Twitter, Mail, MessageCircle } from "lucide-react";
 import { Logo } from "./logo";
-import { LegalDialog } from "./legal-dialog";
-import { NAV_LINKS, SERVICE_OPTIONS, SITE } from "@/lib/site";
+import { NAV_LINKS, PAGE_ROUTES, SERVICE_OPTIONS, SITE } from "@/lib/site";
 
 const SOCIALS = [
   // TODO(Hanifah): replace the "#" hrefs in src/lib/site.ts with your real profiles
@@ -11,9 +10,9 @@ const SOCIALS = [
 ];
 
 /**
- * Site footer: brand summary, navigation, services, contact channels,
- * legal dialogs, and copyright. Sticks to the bottom of the viewport
- * via the root flex layout (mt-auto).
+ * Site footer: brand summary, page navigation, services, contact
+ * channels, legal page links, and the studio credit line. Sticks to
+ * the bottom of the viewport via the root flex layout (mt-auto).
  */
 export function Footer() {
   return (
@@ -24,8 +23,9 @@ export function Footer() {
           <div>
             <Logo tone="light" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-navy-100/70">
-              AI-powered website design for small businesses, startups, and product brands —
-              professional, modern websites with honest, transparent terms.
+              Website design for small businesses, startups, and product brands.
+              Professional websites, honest terms, and no separate hosting bill
+              under the arrangement we agree on.
             </p>
             {/* Social placeholders */}
             <div className="mt-6 flex items-center gap-3">
@@ -35,7 +35,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${social.name} (link placeholder — add your profile URL)`}
+                  aria-label={`${social.name} (link placeholder, add your profile URL)`}
                   className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 transition-all hover:-translate-y-0.5 hover:bg-lavender-500/20 hover:ring-lavender-400/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400"
                 >
                   <social.icon className="h-4.5 w-4.5 text-lavender-200" aria-hidden="true" />
@@ -44,10 +44,10 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Explore */}
+          {/* Pages */}
           <nav aria-label="Footer navigation">
             <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-lavender-300">
-              Explore
+              Pages
             </h3>
             <ul className="mt-5 space-y-3">
               {NAV_LINKS.map((link) => (
@@ -72,7 +72,7 @@ export function Footer() {
               {SERVICE_OPTIONS.slice(0, 6).map((service) => (
                 <li key={service.value}>
                   <a
-                    href="#services"
+                    href={PAGE_ROUTES.services}
                     className="text-sm text-navy-100/75 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 rounded-sm"
                   >
                     {service.label}
@@ -109,9 +109,9 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <p className="mt-5 text-xs leading-relaxed text-navy-100/50">
-              {/* TODO(Hanifah): replace the email and WhatsApp number in src/lib/site.ts */}
-              Contact details above are placeholders ready to be swapped for your real channels.
+            <p className="mt-5 text-xs leading-relaxed text-navy-100/60">
+              Tell me about your business and the website you have in mind. I
+              read every message myself.
             </p>
           </div>
         </div>
@@ -121,15 +121,23 @@ export function Footer() {
           <p className="text-xs text-navy-100/55">
             © {new Date().getFullYear()} Hanifah Studio. All rights reserved.
           </p>
+          <p className="text-xs text-navy-100/55">
+            Designed by{" "}
+            <span className="font-semibold text-lavender-300">Hanifah Studio</span>
+          </p>
           <div className="flex items-center gap-6">
-            <LegalDialog
-              kind="privacy"
-              className="text-xs text-navy-100/55 transition-colors hover:text-white"
-            />
-            <LegalDialog
-              kind="terms"
-              className="text-xs text-navy-100/55 transition-colors hover:text-white"
-            />
+            <a
+              href={PAGE_ROUTES.privacy}
+              className="text-xs text-navy-100/55 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 rounded-sm"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href={PAGE_ROUTES.terms}
+              className="text-xs text-navy-100/55 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 rounded-sm"
+            >
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>

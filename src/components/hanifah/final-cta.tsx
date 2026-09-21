@@ -1,8 +1,9 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Reveal } from "./reveal";
+import { PAGE_ROUTES } from "@/lib/site";
 
 /**
- * Final call to action — a visually striking closing panel that funnels
+ * Final call to action: a visually striking closing panel that funnels
  * every remaining visitor toward the inquiry form.
  */
 export function FinalCta() {
@@ -37,7 +38,7 @@ export function FinalCta() {
               </p>
               <div className="mt-9">
                 <a
-                  href="#contact"
+                  href={PAGE_ROUTES.contact}
                   className="group inline-flex items-center gap-2.5 rounded-full bg-lavender-400 px-8 py-4.5 text-base font-bold text-navy-950 shadow-glow transition-all hover:-translate-y-0.5 hover:bg-lavender-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950 sm:px-10"
                 >
                   Let&rsquo;s Talk About Your Website

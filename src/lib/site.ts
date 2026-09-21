@@ -1,14 +1,13 @@
 /**
  * Central place for brand content and contact details.
  *
- * ┌──────────────────────────────────────────────────────────────┐
- * │  TODO (Hanifah): replace the placeholder values below with   │
- * │  your real contact details before going live.                │
- * └──────────────────────────────────────────────────────────────┘
+ * TODO(Hanifah): replace the placeholder values below with your real
+ * contact details before going live. They are used by the header,
+ * footer, contact page, and privacy pages.
  */
 export const SITE = {
   name: "Hanifah Studio",
-  tagline: "AI-Powered Website Design",
+  tagline: "Website Design Studio",
   url: "https://hanifahstudio.com", // TODO: replace with your real domain
   founder: "Hanifah",
 
@@ -27,21 +26,33 @@ export const SITE = {
   },
 } as const;
 
-/** Service options — single source of truth for the services grid and the inquiry form. */
+/** Page routes used across the site. See src/lib/router.ts */
+export const PAGE_ROUTES = {
+  home: "#/",
+  services: "#/services",
+  portfolio: "#/portfolio",
+  about: "#/about",
+  contact: "#/contact",
+  privacy: "#/privacy",
+  terms: "#/terms",
+} as const;
+
+/** Service options. Single source of truth for the services pages and the inquiry form. */
 export const SERVICE_OPTIONS = [
-  { value: "business-website", label: "AI Business Website Design" },
-  { value: "landing-page", label: "AI Landing Page Design" },
-  { value: "ecommerce", label: "E-commerce Website Design" },
+  { value: "business-website", label: "AI Business Website" },
+  { value: "landing-page", label: "AI Landing Page" },
+  { value: "ecommerce", label: "Ecommerce Website" },
   { value: "redesign", label: "Website Redesign" },
-  { value: "showcase", label: "Product & Brand Showcase Website" },
-  { value: "service-provider", label: "Service-Provider Website" },
-  { value: "other", label: "Something else / not sure yet" },
+  { value: "showcase", label: "Product or Brand Showcase" },
+  { value: "service-provider", label: "Service Provider Website" },
+  { value: "other", label: "Something else (not sure yet)" },
 ] as const;
 
+/** Main navigation. */
 export const NAV_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#services", label: "Services" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: PAGE_ROUTES.home, route: "/", label: "Home" },
+  { href: PAGE_ROUTES.services, route: "/services", label: "Services" },
+  { href: PAGE_ROUTES.portfolio, route: "/portfolio", label: "Portfolio" },
+  { href: PAGE_ROUTES.about, route: "/about", label: "About" },
+  { href: PAGE_ROUTES.contact, route: "/contact", label: "Contact" },
 ] as const;

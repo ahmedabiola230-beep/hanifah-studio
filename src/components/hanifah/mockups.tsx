@@ -86,7 +86,7 @@ function Line({ className }: { className?: string }) {
 }
 
 /* ============================================================
-   1. "Verona Home" — premium interior studio (hero mockup)
+   1. "Verona Home": premium interior studio (hero mockup)
    ============================================================ */
 
 /** Desktop variant of the Verona Home mock site. */
@@ -214,7 +214,7 @@ export function MockVeronaMobile({ className }: { className?: string }) {
 }
 
 /* ============================================================
-   2. "Lumière Skin" — premium skincare e-commerce (Concept A)
+   2. "Lumière Skin": premium skincare ecommerce (Concept A)
    ============================================================ */
 
 function Bottle({ tone, className }: { tone: "rose" | "amber" | "sage"; className?: string }) {
@@ -320,7 +320,7 @@ export function MockLumiere({ className }: { className?: string }) {
 }
 
 /* ============================================================
-   3. "Northstar Creative" — modern agency (Concept B)
+   3. "Northstar Creative": modern agency (Concept B)
    ============================================================ */
 
 /** Full-bleed concept site for the Northstar Creative portfolio card + dialog. */
@@ -402,7 +402,7 @@ export function MockNorthstar({ className }: { className?: string }) {
 }
 
 /* ============================================================
-   4. "Maison Elara" — elegant fashion boutique (Concept C)
+   4. "Maison Elara": elegant fashion boutique (Concept C)
    ============================================================ */
 
 /** Full-bleed concept site for the Maison Elara portfolio card + dialog. */

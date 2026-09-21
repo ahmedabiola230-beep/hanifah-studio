@@ -45,7 +45,7 @@ export function Reveal({ children, className, delay = 0, direction = "up" }: Rev
 }
 
 /**
- * Staggered children container — reveals children one after another.
+ * Staggered children container: reveals children one after another.
  * Pass children as an array; each is wrapped in its own motion div.
  */
 export function RevealStagger({

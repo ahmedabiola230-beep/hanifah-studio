@@ -3,16 +3,28 @@
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Logo } from "./logo";
-import { NAV_LINKS } from "@/lib/site";
+import { NAV_LINKS, PAGE_ROUTES } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
+type HeaderProps = {
+  currentRoute: string;
+};
+
 /**
- * Sticky site header: transparent over the hero, gains a frosted-glass
- * background after scrolling. Includes an accessible mobile menu.
+ * Sticky site header: transparent over the page hero, gains a frosted
+ * glass background after scrolling. Shows which page you are on, and
+ * includes an accessible mobile menu.
  */
-export function Header() {
+export function Header({ currentRoute }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close the menu whenever the visitor moves to another page
+  const [previousRoute, setPreviousRoute] = useState(currentRoute);
+  if (previousRoute !== currentRoute) {
+    setPreviousRoute(currentRoute);
+    if (menuOpen) setMenuOpen(false);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -43,20 +55,29 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="rounded-lg px-4 py-2 text-sm font-semibold text-ink-600 transition-colors hover:bg-lavender-100/70 hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const active = currentRoute === link.route;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "rounded-lg px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400",
+                  active
+                    ? "bg-lavender-100 text-navy-900"
+                    : "text-ink-600 hover:bg-lavender-100/70 hover:text-navy-900"
+                )}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-3">
           <a
-            href="#contact"
+            href={PAGE_ROUTES.contact}
             className="group hidden items-center gap-2 rounded-full bg-navy-900 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-navy-800 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 focus-visible:ring-offset-2 sm:inline-flex"
           >
             Let&rsquo;s Talk
@@ -89,19 +110,26 @@ export function Header() {
         )}
       >
         <nav aria-label="Mobile" className="site-container flex flex-col gap-1 py-4">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="rounded-xl px-4 py-3 text-base font-semibold text-ink-700 transition-colors hover:bg-lavender-100/70 hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const active = currentRoute === link.route;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "rounded-xl px-4 py-3 text-base font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400",
+                  active
+                    ? "bg-lavender-100 text-navy-900"
+                    : "text-ink-700 hover:bg-lavender-100/70 hover:text-navy-900"
+                )}
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
+            href={PAGE_ROUTES.contact}
             className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-5 py-3.5 text-base font-semibold text-white transition-colors hover:bg-navy-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400"
           >
             Let&rsquo;s Talk

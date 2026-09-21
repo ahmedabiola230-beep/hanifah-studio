@@ -16,11 +16,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SERVICE_OPTIONS, SITE } from "@/lib/site";
-import { LegalDialog } from "./legal-dialog";
+import { SERVICE_OPTIONS, SITE, PAGE_ROUTES } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-/** Validation schema — kept in sync with the API route's server-side validation. */
+/** Validation schema, kept in sync with the API route's server-side validation. */
 const inquiryFormSchema = z.object({
   name: z.string().trim().min(2, { message: "Please enter your name (at least 2 characters)." }),
   email: z.string().trim().toLowerCase().email({ message: "Please enter a valid email address." }),
@@ -39,7 +38,7 @@ const inquiryFormSchema = z.object({
     .string()
     .trim()
     .min(20, {
-      message: "Please describe your project in at least 20 characters — details help me help you.",
+      message: "Please describe your project in at least 20 characters. Details help me help you.",
     })
     .max(3000, { message: "Please keep your description under 3,000 characters." }),
 });
@@ -52,7 +51,7 @@ const inputStyles =
   "h-12 rounded-xl border-navy-900/12 bg-white text-[0.95rem] shadow-none transition-colors focus-visible:ring-2 focus-visible:ring-lavender-400 focus-visible:border-lavender-400 aria-[invalid=true]:border-red-400 aria-[invalid=true]:ring-red-200";
 
 /**
- * Inquiry form — validates on the client and submits to /api/inquiry,
+ * Inquiry form: validates on the client and submits to /api/inquiry,
  * which stores the inquiry in the studio's database. Honest states only:
  * a success message is shown only when the server confirms receipt.
  */
@@ -118,12 +117,12 @@ export function InquiryForm() {
           <CheckCircle2 className="h-8 w-8 text-emerald-600" aria-hidden="true" />
         </span>
         <h3 className="mt-6 font-display text-2xl font-bold text-navy-900">
-          Thank you — your inquiry was received.
+          Thank you, your inquiry was received.
         </h3>
         <p className="mt-3 max-w-md text-[0.95rem] leading-relaxed text-ink-500">
-          Your project details have been submitted to Hanifah Studio and stored securely. You&rsquo;ll
-          get a personal reply at the email address you provided, together with any follow-up
-          questions and a clear, no-obligation quote.
+          Your project details are with Hanifah Studio now. You&rsquo;ll get a personal reply at
+          the email address you provided, along with any follow up questions and a clear, no
+          obligation quote.
         </p>
         <Button
           type="button"
@@ -286,7 +285,7 @@ export function InquiryForm() {
           <Textarea
             id="inq-description"
             rows={5}
-            placeholder="Tell me about your business, your goals, and the website you have in mind — the more detail, the better I can help."
+            placeholder="Tell me about your business, your goals, and the website you have in mind. The more detail, the better I can help."
             aria-invalid={!!errors.projectDescription}
             aria-describedby={errors.projectDescription ? "inq-description-error" : undefined}
             className="min-h-[120px] rounded-xl border-navy-900/12 bg-white text-[0.95rem] transition-colors focus-visible:ring-2 focus-visible:ring-lavender-400 focus-visible:border-lavender-400"
@@ -299,7 +298,7 @@ export function InquiryForm() {
               </p>
             ) : (
               <p className="text-xs text-ink-400">
-                Products, services, goals, examples you like — anything helps.
+                Products, services, goals, examples you like. Anything helps.
               </p>
             )}
           </div>
@@ -353,10 +352,13 @@ export function InquiryForm() {
         </Button>
         <p className="max-w-xs text-xs leading-relaxed text-ink-400">
           Submitting shares your name, email, business details, and project description with
-          Hanifah Studio — used only to reply to your inquiry.{" "}
-          <LegalDialog kind="privacy" className="font-medium underline underline-offset-2 hover:text-navy-900">
+          Hanifah Studio, used only to reply to your inquiry.{" "}
+          <a
+            href={PAGE_ROUTES.privacy}
+            className="font-medium underline underline-offset-2 hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 rounded-sm"
+          >
             Privacy Policy
-          </LegalDialog>
+          </a>
         </p>
       </div>
     </form>

@@ -1,5 +1,4 @@
-import { Mail, MessageCircle, Clock3, ArrowRight } from "lucide-react";
-import { SectionHeading } from "./section-heading";
+import { Mail, MessageCircle, Clock3 } from "lucide-react";
 import { Reveal } from "./reveal";
 import { InquiryForm } from "./inquiry-form";
 import { SITE } from "@/lib/site";
@@ -8,43 +7,41 @@ const NEXT_STEPS = [
   {
     step: "1",
     title: "Share your details",
-    body: "Fill in the form — your business, your goals, and the website you have in mind. The more you share, the more useful my first reply will be.",
+    body: "Fill in the form below. Your business, your goals, and the website you have in mind. The more you share, the more useful my first reply will be.",
   },
   {
     step: "2",
     title: "Get a clear, honest reply",
-    body: "I'll respond personally with follow-up questions, a realistic timeline, and a clear, no-obligation quote — including every potential cost.",
+    body: "I will respond personally with follow up questions, a realistic timeline, and a clear, no obligation quote that includes every possible cost.",
   },
   {
     step: "3",
     title: "Decide freely",
-    body: "No pressure and no follow-up harassment. If it feels right, we start. If not, you'll still leave the conversation knowing exactly what a professional website involves.",
+    body: "No pressure, and no chasing. If it feels right, we start. If not, you still leave the conversation knowing exactly what a professional website involves.",
   },
 ];
 
 /**
- * Contact section — where every CTA on the site lands. Combines the
- * "what happens next" reassurance with the working inquiry form.
+ * Contact page content: what happens after reaching out, direct
+ * channels, and the working inquiry form.
  */
-export function Contact() {
+export function ContactSection() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28" aria-labelledby="contact-heading">
+    <section
+      id="contact-form-section"
+      className="relative overflow-hidden bg-white pb-20 sm:pb-24 lg:pb-28"
+      aria-labelledby="contact-section-heading"
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 top-10 h-96 w-96 rounded-full bg-lavender-200/40 blur-3xl"
       />
       <div className="site-container relative">
-        <SectionHeading
-          eyebrow="Contact"
-          title={
-            <>
-              Let&rsquo;s talk about <span className="text-lavender-600">your website.</span>
-            </>
-          }
-          description="Tell me about your business and what you need — I'll reply with honest answers and a clear quote. No jargon, no pressure."
-        />
+        <h2 id="contact-section-heading" className="sr-only">
+          Send your inquiry
+        </h2>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           {/* Left: what happens next + direct channels */}
           <div>
             <Reveal>
@@ -86,10 +83,6 @@ export function Contact() {
                         <Mail className="h-4.5 w-4.5 text-lavender-600 group-hover:text-white" aria-hidden="true" />
                       </span>
                       {SITE.email}
-                      <ArrowRight
-                        className="ml-auto h-4 w-4 text-navy-900/20 transition-transform group-hover:translate-x-0.5 group-hover:text-lavender-600"
-                        aria-hidden="true"
-                      />
                     </a>
                   </li>
                   <li>
@@ -103,17 +96,13 @@ export function Contact() {
                         <MessageCircle className="h-4.5 w-4.5 text-lavender-600 group-hover:text-white" aria-hidden="true" />
                       </span>
                       {SITE.whatsappLabel}
-                      <ArrowRight
-                        className="ml-auto h-4 w-4 text-navy-900/20 transition-transform group-hover:translate-x-0.5 group-hover:text-lavender-600"
-                        aria-hidden="true"
-                      />
                     </a>
                   </li>
                   <li className="flex items-center gap-3 p-2 text-[0.95rem] font-medium text-ink-600">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-soft ring-1 ring-navy-900/8">
                       <Clock3 className="h-4.5 w-4.5 text-lavender-600" aria-hidden="true" />
                     </span>
-                    Replies usually within one business day
+                    I usually reply within one business day
                   </li>
                 </ul>
               </div>

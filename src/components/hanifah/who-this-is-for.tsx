@@ -7,32 +7,32 @@ const AUDIENCES = [
   {
     icon: Store,
     title: "Small business owners",
-    body: "You've built something real — now look the part. A professional website makes your business findable, credible, and easy to contact when customers search for what you offer.",
+    body: "You have built something real. A proper website makes your business findable, believable, and easy to contact when people search for what you offer.",
   },
   {
     icon: Rocket,
     title: "Startups",
-    body: "Move fast without looking improvised. Launch a polished, credible web presence quickly — without burning your early budget on traditional agency retainers.",
+    body: "Move fast without looking improvised. Launch a polished online presence quickly, without burning your early budget on agency retainers.",
   },
   {
     icon: ShoppingBag,
-    title: "E-commerce & product brands",
-    body: "Product-first design that shows your items at their best, with clear paths from browsing to buying — so your store works as hard as you do.",
+    title: "Ecommerce and product brands",
+    body: "Product first design that shows your items at their best, with a short path from browsing to buying.",
   },
   {
     icon: HeartHandshake,
-    title: "Coaches, consultants & service providers",
-    body: "Your expertise deserves a clear stage. Present your offers, build trust, and make it effortless for potential clients to inquire or book.",
+    title: "Coaches, consultants, and service providers",
+    body: "People buy expertise from people they trust. Your website should build that trust before the first conversation even starts.",
   },
   {
     icon: RefreshCw,
     title: "Businesses that need a redesign",
-    body: "If your current website no longer reflects the quality of your work, a thoughtful redesign refreshes your image without losing what your customers already recognize.",
+    body: "Your website had a good run. If it no longer matches the quality of your work, a thoughtful redesign refreshes your image without losing what customers already recognize.",
   },
 ];
 
 /**
- * Audience section — five cards showing who the service is for.
+ * Audience section: five cards showing who the service is for.
  * Layout: first two cards span 3 columns each on large screens (2-up),
  * the remaining three fill the second row (3-up) for a balanced grid.
  */

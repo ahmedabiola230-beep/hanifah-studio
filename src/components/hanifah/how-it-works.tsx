@@ -7,21 +7,21 @@ const STEPS = [
     icon: MessageSquareText,
     step: "Step 1",
     title: "Tell me about your business.",
-    body: "We start with a friendly, no-jargon conversation: what you sell, who your customers are, what you love (and don't) about other websites, and what this website needs to achieve for you.",
+    body: "We start with a friendly conversation, no jargon. What you sell, who buys it, what you love or hate about other websites, and what this website needs to do for you.",
     detail: "Goals · Customers · Style",
   },
   {
     icon: PenTool,
     step: "Step 2",
     title: "We plan, design, and refine your website.",
-    body: "I map the structure first, then design your pages using AI-accelerated workflows with human creative direction at every decision. You review, give feedback, and we refine until it feels right.",
+    body: "I map the structure first, then design the pages with AI handling the slow, repetitive parts of the work. You review, give feedback, and I refine until it feels right.",
     detail: "Structure · Design · Feedback rounds",
   },
   {
     icon: Rocket,
     step: "Step 3",
     title: "We prepare your website for launch.",
-    body: "Following the domain and hosting arrangement we agreed on, I handle the technical setup, check everything on every screen size, connect your inquiry paths, and walk you through the finished website.",
+    body: "Following the domain and hosting arrangement we agreed on, I handle the technical setup, check every screen size, connect your contact paths, and walk you through the finished website.",
     detail: "Setup · Checks · Launch",
   },
 ];
@@ -40,7 +40,7 @@ export function HowItWorks() {
               From idea to website in <span className="text-lavender-600">three simple steps.</span>
             </>
           }
-          description="A clear, guided process — you always know what's happening, what's next, and what's needed from you."
+          description="A clear, guided process. You always know what is happening, what comes next, and what is needed from you."
         />
 
         <ol className="relative mt-16 grid gap-10 lg:grid-cols-3 lg:gap-8">

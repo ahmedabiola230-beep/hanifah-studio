@@ -19,16 +19,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Hanifah Studio — AI-Powered Website Design for Small Businesses",
+    default: "Hanifah Studio | Website Design for Small Businesses",
     template: "%s | Hanifah Studio",
   },
   description:
-    "Professional, modern websites for small businesses, startups, and e-commerce brands — designed with AI-powered workflows. Simpler hosting arrangement without a separate hosting fee. You own your domain. Clear, honest pricing.",
+    "Professional, modern websites for small businesses, designed with AI. No separate hosting fee under the arrangement we agree on. You buy your own domain and own it completely. Clear quotes, honest terms.",
   keywords: [
     "AI website design",
     "small business website",
     "affordable website design",
-    "e-commerce website design",
+    "ecommerce website design",
     "landing page design",
     "website redesign",
     "Hanifah Studio",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     icon: "/hanifah-logo.svg",
   },
   openGraph: {
-    title: "Hanifah Studio — AI-Powered Website Design",
+    title: "Hanifah Studio | Website Design for Small Businesses",
     description:
-      "Your business deserves a website. Not another monthly bill. Professional, modern websites designed with AI — with a simpler hosting arrangement and honest, transparent pricing.",
+      "Your business deserves a website. Not another monthly bill. Professional websites designed with AI, honest terms, and no separate hosting bill.",
     url: SITE.url,
     siteName: "Hanifah Studio",
     locale: "en_US",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hanifah Studio — AI-Powered Website Design",
+    title: "Hanifah Studio | Website Design for Small Businesses",
     description:
-      "Professional, modern websites for small businesses — designed with AI-powered workflows. Honest pricing, no separate hosting bill under the agreed arrangement.",
+      "Professional, modern websites for small businesses, designed with AI. Honest terms and no separate hosting bill under the agreed arrangement.",
   },
   robots: {
     index: true,

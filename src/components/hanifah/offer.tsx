@@ -1,32 +1,33 @@
 import { CheckCircle2, FileText, ArrowRight } from "lucide-react";
 import { Reveal } from "./reveal";
+import { PAGE_ROUTES } from "@/lib/site";
 
 const OFFER_POINTS = [
   {
     title: "Design and setup, scoped and quoted upfront",
-    body: "Your website design and setup are provided according to the project scope and price we agree on — written down before any work begins.",
+    body: "Your website is designed and set up according to the project scope and price we agree on. Written down before any work begins.",
   },
   {
-    title: "You buy your domain separately — and you own it",
-    body: "Your domain is registered in your name, under your account. You stay in full control of it, always.",
+    title: "You buy your domain separately, and you own it",
+    body: "Your domain is registered in your name, under your account, and it stays that way. You are never locked in.",
   },
   {
-    title: "Intended domain budget: under $11 per year",
-    body: "I plan around common domain extensions priced under $11/year. Actual prices vary by registrar, extension, taxes, promotions, and renewal rates — so I confirm the exact price with you before you purchase.",
+    title: "Plan for a domain under $11 per year",
+    body: "I plan most projects around common domains priced under $11 a year. Real prices vary by registrar, extension, taxes, promotions, and renewal rates, so I confirm the exact price with you before you buy.",
   },
   {
     title: "No separate hosting bill",
-    body: "Hosting is provided without a separate hosting fee under the hosting arrangement agreed with each client. No monthly hosting invoice to track or worry about.",
+    body: "Hosting is provided under the arrangement we agree on, with no separate hosting fee. Nothing to track, nothing to renew on your side.",
   },
   {
     title: "Every possible extra cost, disclosed upfront",
-    body: "Third-party services, paid integrations, platform costs, maintenance, or any other potential charges are explained in writing before you commit. Nothing gets added without your approval.",
+    body: "Third party services, paid tools, platform costs, maintenance. If it could ever cost money, you hear it from me first, in writing, before you commit.",
   },
 ];
 
 /**
- * The Offer section — dark, high-contrast panel explaining the hosting/domain
- * arrangement honestly, with explicit disclosure commitments.
+ * The Offer section: dark, high contrast panel explaining the hosting and
+ * domain arrangement honestly, with explicit disclosure commitments.
  */
 export function Offer() {
   return (
@@ -63,15 +64,15 @@ export function Offer() {
               <span className="text-lavender-300">without a separate hosting bill.</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-navy-100/85 text-pretty sm:text-lg">
-              Most website quotes hide the real cost in monthly fees. Here&rsquo;s exactly how my
-              arrangement works — in plain language, so you can decide with confidence.
+              Most website quotes hide the real cost in monthly fees. Here is exactly how my
+              arrangement works, in plain language, so you can decide with confidence.
             </p>
           </Reveal>
 
           <Reveal delay={0.12}>
             <div className="mt-8">
               <a
-                href="#contact"
+                href={PAGE_ROUTES.contact}
                 className="group inline-flex items-center gap-2 rounded-full bg-lavender-400 px-7 py-4 text-base font-semibold text-navy-950 shadow-glow transition-all hover:-translate-y-0.5 hover:bg-lavender-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
               >
                 Discuss Your Website Project
@@ -81,8 +82,7 @@ export function Offer() {
                 />
               </a>
               <p className="mt-4 text-sm text-navy-100/70">
-                No obligation — you&rsquo;ll get clear answers and a quote before anything is
-                agreed.
+                No obligation. You get clear answers and a quote before anything is agreed.
               </p>
             </div>
           </Reveal>
@@ -110,8 +110,8 @@ export function Offer() {
 
           <p className="mt-5 flex items-start gap-2.5 rounded-2xl border border-lavender-400/25 bg-lavender-400/10 p-4 text-[13px] leading-relaxed text-lavender-100/90">
             <FileText className="mt-0.5 h-4 w-4 shrink-0 text-lavender-300" aria-hidden="true" />
-            The hosting arrangement, what&rsquo;s included, its limitations, and any third-party
-            costs are always explained in writing before you commit to anything.
+            The hosting arrangement, what it includes, its limits, and any third party costs are
+            explained in writing before you commit to anything.
           </p>
         </Reveal>
       </div>

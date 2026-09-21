@@ -6,113 +6,42 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2, Info } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
-import { BrowserFrame, MockLumiere, MockNorthstar, MockElara } from "./mockups";
+import { BrowserFrame } from "./mockups";
+import { PROJECTS, type ConceptProject } from "./projects";
+import { PAGE_ROUTES } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-type ConceptProject = {
-  id: string;
-  name: string;
-  industry: string;
-  tagline: string;
-  description: string[];
-  features: string[];
-  mock: React.ReactNode;
-  accentClass: string;
-  ringClass: string;
-  ariaLabel: string;
-};
-
-const PROJECTS: ConceptProject[] = [
-  {
-    id: "lumiere",
-    name: "Lumière Skin",
-    industry: "Premium Skincare · E-commerce",
-    tagline: "A calm, editorial shopping experience where the products do the talking.",
-    description: [
-      "Lumière Skin is a concept for a premium skincare brand that wanted to feel more like a boutique than a webshop. The design pairs warm cream tones with soft blush accents and fine gold details, letting photography and typography carry the elegance.",
-      "The layout leads with a full-width brand statement, then moves shoppers gently toward a curated bestseller grid — every element designed to keep the path from inspiration to purchase short and pleasant.",
-    ],
-    features: [
-      "Editorial hero with a soft, luxurious palette",
-      "Product grid with clear pricing and quick-add actions",
-      "Persistent shopping bag for frictionless checkout",
-      "Typography and spacing tuned for a premium feel",
-    ],
-    mock: <MockLumiere />,
-    accentClass: "bg-[#f3e8e0] text-[#8a5a44]",
-    ringClass: "hover:ring-[#e3c2b3]",
-    ariaLabel: "Concept preview of the Lumière Skin website — a premium skincare e-commerce design with cream and blush tones",
-  },
-  {
-    id: "northstar",
-    name: "Northstar Creative",
-    industry: "Creative Agency · Brand Studio",
-    tagline: "Bold, high-contrast design that positions the agency as confident and modern.",
-    description: [
-      "Northstar Creative is a concept for a modern brand studio that needed its website to demonstrate the very thing it sells: bold ideas, executed with energy. The near-black canvas and electric amber accent make every headline feel like a statement.",
-      "A scrolling services strip adds motion without clutter, while a compact case-study grid shows range at a glance — proof that restraint and impact can share the same page.",
-    ],
-    features: [
-      "Oversized display typography with strong contrast",
-      "Animated marquee strip for service highlights",
-      "Case-study cards with clear category tags",
-      "Dark theme designed for focus and drama",
-    ],
-    mock: <MockNorthstar />,
-    accentClass: "bg-[#1c1a14] text-[#f5a623]",
-    ringClass: "hover:ring-[#f5a623]/40",
-    ariaLabel: "Concept preview of the Northstar Creative website — a dark, bold creative agency design with amber accents",
-  },
-  {
-    id: "elara",
-    name: "Maison Elara",
-    industry: "Fashion Boutique · Lookbook",
-    tagline: "Quiet luxury through generous whitespace, serif type, and measured rhythm.",
-    description: [
-      "Maison Elara is a concept for an elegant fashion boutique building a seasonal lookbook experience. Ivory backgrounds, letter-spaced serif headings, and a restrained palette create the feeling of leafing through a printed magazine.",
-      "The lookbook grid staggers its imagery like an editorial spread, drawing the eye down the page from look to look — a slow, deliberate browsing pace that suits high-consideration fashion purchases.",
-    ],
-    features: [
-      "Full-bleed seasonal collection hero",
-      "Editorial, staggered lookbook grid",
-      "Letter-spaced serif typography for a couture feel",
-      "Minimal navigation that never competes with imagery",
-    ],
-    mock: <MockElara />,
-    accentClass: "bg-[#ece7dc] text-[#5c554a]",
-    ringClass: "hover:ring-[#b9ac9a]",
-    ariaLabel: "Concept preview of the Maison Elara website — an elegant ivory fashion boutique design with editorial lookbook",
-  },
-];
-
 /**
- * Portfolio grid with three clearly-labelled concept projects.
- * Each card opens a detail dialog with a larger preview.
+ * Portfolio grid with three clearly labelled concept projects.
+ * Each card opens a detail dialog with a larger preview. Set
+ * `showHeading` to false when the page already provides a heading.
  */
-export function Portfolio() {
+export function Portfolio({ showHeading = true }: { showHeading?: boolean }) {
   const [openProject, setOpenProject] = useState<ConceptProject | null>(null);
 
   return (
-    <section id="portfolio" className="bg-cream-100 py-20 sm:py-24 lg:py-28" aria-labelledby="portfolio-heading">
+    <section id="portfolio" className="bg-cream-100 pb-20 pt-4 sm:pb-24 sm:pt-6 lg:pb-28" aria-label="Portfolio projects">
       <div className="site-container">
-        <SectionHeading
-          eyebrow="Portfolio"
-          title={
-            <>
-              Websites designed to <span className="text-lavender-600">make businesses stand out.</span>
-            </>
-          }
-          description="A look at my design style across three different industries — each one planned, structured, and styled from scratch."
-        />
+        {showHeading && (
+          <SectionHeading
+            eyebrow="Portfolio"
+            title={
+              <>
+                Websites designed to <span className="text-lavender-600">make businesses stand out.</span>
+              </>
+            }
+            description="Three industries, three looks, one standard. Each project was planned, structured, and styled from scratch."
+          />
+        )}
 
         {/* Honest labelling notice */}
         <Reveal delay={0.1}>
           <p className="mx-auto mt-6 flex max-w-2xl items-start justify-center gap-2 rounded-2xl border border-lavender-300/50 bg-lavender-100/60 px-4 py-3 text-center text-[13px] leading-relaxed text-navy-800">
             <Info className="mt-0.5 h-4 w-4 shrink-0 text-lavender-700" aria-hidden="true" />
             <span>
-              All three projects below are <strong>concept (demo) projects</strong> — created to
-              demonstrate my design style and process. They are not client work, and no client
-              relationships or results are implied.
+              All three projects below are <strong>concept projects</strong>, made to show my
+              design style and process. They are not client work, and no client relationships or
+              results are implied.
             </span>
           </p>
         </Reveal>
@@ -174,8 +103,8 @@ export function Portfolio() {
         {/* Replacement note for Hanifah */}
         <Reveal delay={0.15}>
           <p className="mx-auto mt-10 max-w-xl text-center text-sm leading-relaxed text-ink-400">
-            As real projects are completed, this space will grow with genuine client work — each
-            with its own story and results.
+            As real projects are completed, this space will grow with genuine client work, each
+            with its own story.
           </p>
         </Reveal>
       </div>
@@ -246,11 +175,11 @@ export function Portfolio() {
 
               <div className="mt-7 flex flex-col gap-3 rounded-2xl border border-lavender-300/50 bg-lavender-100/50 p-4 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-[13px] leading-relaxed text-navy-800">
-                  <strong>Concept project</strong> — a demonstration design, not client work. Like
+                  <strong>Concept project.</strong> A demonstration design, not client work. Like
                   what you see? Let&rsquo;s design something for your business.
                 </p>
                 <a
-                  href="#contact"
+                  href={PAGE_ROUTES.contact}
                   onClick={() => setOpenProject(null)}
                   className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-navy-900 px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-navy-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-500 focus-visible:ring-offset-2"
                 >

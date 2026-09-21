@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { PAGE_ROUTES } from "@/lib/site";
 
 type LogoProps = {
   /** Use the light (white text) variant on dark backgrounds. */
@@ -39,7 +40,7 @@ export function Logo({ tone = "dark", className, asLink = true }: LogoProps) {
             light ? "text-lavender-300" : "text-lavender-600"
           )}
         >
-          AI-Powered Design
+          Website Design Studio
         </span>
       </span>
     </span>
@@ -49,8 +50,8 @@ export function Logo({ tone = "dark", className, asLink = true }: LogoProps) {
 
   return (
     <Link
-      href="#home"
-      aria-label="Hanifah Studio — back to top"
+      href={PAGE_ROUTES.home}
+      aria-label="Hanifah Studio, back to home page"
       className="rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 focus-visible:ring-offset-2"
     >
       {content}

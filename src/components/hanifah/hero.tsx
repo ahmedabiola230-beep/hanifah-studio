@@ -1,6 +1,7 @@
 import { ArrowRight, Sparkles, MonitorSmartphone, ShieldCheck } from "lucide-react";
 import { Reveal } from "./reveal";
 import { BrowserFrame, PhoneFrame, MockVeronaDesktop, MockVeronaMobile } from "./mockups";
+import { PAGE_ROUTES } from "@/lib/site";
 
 /**
  * Hero: benefit-led headline, supporting copy, two CTAs and a layered
@@ -34,7 +35,7 @@ export function Hero() {
               <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lavender-200">
                 <Sparkles className="h-3.5 w-3.5 text-lavender-700" aria-hidden="true" />
               </span>
-              AI-Powered Website Design Studio
+              AI Assisted Website Design Studio
             </p>
           </Reveal>
 
@@ -52,7 +53,7 @@ export function Hero() {
 
           <Reveal delay={0.16}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-600 text-pretty">
-              Get a professional, modern website for your business with AI-powered design. Enjoy a
+              Get a professional, modern website for your business, designed with AI. Enjoy a
               simpler hosting arrangement without a separate hosting fee, while paying for your
               domain separately.
             </p>
@@ -61,7 +62,7 @@ export function Hero() {
           <Reveal delay={0.24}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="#contact"
+                href={PAGE_ROUTES.contact}
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-4 text-base font-semibold text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-navy-800 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-500 focus-visible:ring-offset-2"
               >
                 Let&rsquo;s Build Your Website
@@ -71,7 +72,7 @@ export function Hero() {
                 />
               </a>
               <a
-                href="#portfolio"
+                href={PAGE_ROUTES.portfolio}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white/80 px-7 py-4 text-base font-semibold text-navy-900 ring-1 ring-navy-900/12 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white hover:ring-lavender-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-500 focus-visible:ring-offset-2"
               >
                 Explore My Work
@@ -83,7 +84,7 @@ export function Hero() {
             <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-ink-500">
               <li className="flex items-center gap-2">
                 <MonitorSmartphone className="h-4 w-4 text-lavender-600" aria-hidden="true" />
-                Looks great on every device
+                Looks right on phones, tablets, and computers
               </li>
               <li className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-lavender-600" aria-hidden="true" />
@@ -113,7 +114,7 @@ export function Hero() {
               </BrowserFrame>
 
               {/* Floating chip: hosting */}
-              <div className="absolute -left-3 top-16 z-20 hidden animate-float items-center gap-2 rounded-2xl bg-white/95 px-3.5 py-2.5 shadow-lift ring-1 ring-navy-900/8 backdrop-blur sm:flex lg:-left-8">
+              <div className="absolute -bottom-5 -left-3 z-20 hidden animate-float items-center gap-2 rounded-2xl bg-white/95 px-3.5 py-2.5 shadow-lift ring-1 ring-navy-900/8 backdrop-blur sm:flex lg:-left-8">
                 <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-lavender-100">
                   <ShieldCheck className="h-4 w-4 text-lavender-700" aria-hidden="true" />
                 </span>
@@ -137,7 +138,8 @@ export function Hero() {
 
           {/* Footnote */}
           <p className="relative mx-auto max-w-[560px] pr-2 text-[11px] leading-snug text-ink-400 sm:pr-24">
-            *Illustrative design. Hosting terms are agreed and explained before any project starts.
+            *Sample design shown. Hosting terms are always agreed and explained in writing before
+            any project starts.
           </p>
         </Reveal>
       </div>

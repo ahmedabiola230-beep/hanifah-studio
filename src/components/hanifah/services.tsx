@@ -9,42 +9,44 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
+import { PAGE_ROUTES } from "@/lib/site";
 
 const SERVICES = [
   {
     icon: Globe,
-    title: "AI Business Website Design",
-    body: "A complete, multi-section website that presents who you are, what you do, and why customers should trust you — designed to turn visitors into inquiries.",
+    title: "AI Business Website",
+    body: "A complete website for a real business. Home page, services, about, and contact. Every page a serious business needs, designed to turn visitors into inquiries.",
   },
   {
     icon: MousePointerClick,
-    title: "AI Landing Page Design",
-    body: "A focused, single page built around one clear action — getting inquiries, bookings, or sign-ups. Ideal for campaigns, offers, and launches.",
+    title: "AI Landing Page",
+    body: "One page with one job. Getting messages, bookings, or sales for a single offer. Ideal for campaigns and launches.",
   },
   {
     icon: ShoppingBag,
-    title: "E-commerce Website Design",
-    body: "Product catalogs, persuasive product pages, and cart-ready flows that present your products beautifully and make buying feel effortless.",
+    title: "Ecommerce Website",
+    body: "Product pages, collections, and a buying flow that feels easy. Built to show your products at their best and keep the path to checkout short.",
   },
   {
     icon: RefreshCw,
     title: "Website Redesign",
-    body: "Your existing site, reimagined: faster, modern, and easier to use — without losing the brand identity your customers already recognize.",
+    body: "Your current site, rebuilt to look modern, load fast, and match the business you have become. Same brand, sharper front door.",
   },
   {
     icon: Gem,
-    title: "Product & Brand Showcase",
-    body: "A visual-first website that lets your work speak — elegant galleries, product stories, and brand presentation for businesses that sell with style.",
+    title: "Product or Brand Showcase",
+    body: "A visual first website where your work does the talking. Galleries, product stories, and a brand presentation with real polish.",
   },
   {
     icon: Briefcase,
-    title: "Service-Provider Websites",
-    body: "For coaches, consultants, freelancers, and local service businesses: clear offers, credibility builders, and easy ways for clients to reach you.",
+    title: "Service Provider Website",
+    body: "For coaches, consultants, freelancers, and local services. Clear offers, honest credibility, and simple ways for clients to reach you.",
   },
 ];
 
 /**
- * Services grid — six benefit-focused service cards.
+ * Services overview shown on the home page. Each card links to the
+ * contact page for a quote, and a full detail page covers every service.
  */
 export function Services() {
   return (
@@ -58,7 +60,7 @@ export function Services() {
               <span className="text-lavender-600">look credible online.</span>
             </>
           }
-          description="One studio for your entire website — planning, design, and setup — so you don't have to coordinate freelancers or wrestle with page builders yourself."
+          description="One studio handles the whole job, from planning to design to launch setup. You do not have to coordinate freelancers or wrestle with page builders yourself."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -81,7 +83,7 @@ export function Services() {
                   {service.body}
                 </p>
                 <a
-                  href="#contact"
+                  href={PAGE_ROUTES.contact}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-lavender-700 transition-colors hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 focus-visible:ring-offset-2"
                 >
                   Request a Project Quote
@@ -95,8 +97,17 @@ export function Services() {
 
         <Reveal delay={0.15}>
           <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-ink-400">
-            Every project starts with a conversation about your goals, followed by a clear,
-            no-obligation quote. Scope, timeline, and any costs are agreed before work begins.
+            Every project starts with a conversation and a clear, no obligation quote. Scope,
+            timeline, and costs are agreed before any work begins.
+          </p>
+          <p className="mt-4 text-center">
+            <a
+              href={PAGE_ROUTES.services}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-900 underline decoration-lavender-400 decoration-2 underline-offset-4 transition-colors hover:text-lavender-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 focus-visible:ring-offset-2 rounded-sm"
+            >
+              See each service explained in detail
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </p>
         </Reveal>
       </div>

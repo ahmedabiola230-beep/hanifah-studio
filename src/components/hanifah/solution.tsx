@@ -13,37 +13,37 @@ const FEATURES = [
   {
     icon: Palette,
     title: "Professional website design",
-    body: "Modern, polished layouts tailored to your brand — built with intention, not stitched together from a generic template.",
+    body: "Clean, modern design built around your business. Not a template with your logo dropped on top.",
   },
   {
     icon: Smartphone,
-    title: "Mobile-friendly layouts",
-    body: "Most of your customers will meet you on a phone. Every page is designed to look sharp and work smoothly on small screens first.",
+    title: "Designed for phones first",
+    body: "Most of your customers will find you on a phone. Your website gets designed for small screens first, then adapted for tablets and computers.",
   },
   {
     icon: Sparkles,
-    title: "AI-powered design workflow",
-    body: "AI accelerates layout exploration and drafting, while every decision — structure, words, visuals — is guided by human creative direction.",
+    title: "A smarter way to build",
+    body: "AI tools help me explore ideas and move quickly. A real designer, me, still checks every page, every word, and every button before anything ships.",
   },
   {
     icon: Package,
-    title: "Business & product presentation",
-    body: "Your products, services, and story presented clearly, so visitors instantly understand what you offer and why it matters to them.",
+    title: "Room for your whole business",
+    body: "Your products, your services, and your story, laid out so a stranger can understand what you do in seconds.",
   },
   {
     icon: MessagesSquare,
-    title: "Clear customer inquiry paths",
-    body: "Strategic buttons, forms, and contact links placed where they matter — so interested visitors always know exactly how to reach you.",
+    title: "Clear ways to reach you",
+    body: "Buttons, forms, and contact links placed exactly where people decide to act. Interested visitors should never have to hunt for how to reach you.",
   },
   {
     icon: ServerOff,
-    title: "Hosting without a separate hosting fee",
-    body: "Under the hosting arrangement agreed with each client, there's no separate monthly hosting bill to keep track of. Terms are explained before you commit.",
+    title: "Hosting with no separate fee",
+    body: "Hosting is arranged as part of our agreement, so no monthly hosting bill shows up out of nowhere. Your domain is the one thing you buy yourself.",
   },
 ];
 
 /**
- * Solution section: how AI-powered design + creative direction solves the problem.
+ * Solution section: how the AI assisted design workflow solves the problem.
  */
 export function Solution() {
   return (
@@ -60,7 +60,7 @@ export function Solution() {
               A professional website, <span className="text-lavender-600">made simpler with AI.</span>
             </>
           }
-          description="I combine AI-powered design workflows with thoughtful creative direction to build modern websites tailored to each business — moving faster than a traditional agency, without leaving you with a DIY project."
+          description="I design websites the way a good tailor makes a suit. Made for you, measured properly, nothing off the rack. AI tools help me work faster. Human judgment keeps every detail right."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

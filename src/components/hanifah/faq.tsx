@@ -8,44 +8,45 @@ import {
 } from "@/components/ui/accordion";
 import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
+import { PAGE_ROUTES } from "@/lib/site";
 
 const FAQS = [
   {
     q: "Do I have to pay for hosting?",
-    a: "No. Under the hosting arrangement agreed with each client, hosting is provided without a separate hosting fee — you won't receive a monthly hosting bill from me. The details of that arrangement, including what's included and any limitations, are explained clearly in writing before you commit to a project.",
+    a: "No. Hosting is provided under the arrangement we agree on, so you will not get a monthly hosting bill from me. What that arrangement includes, and any limits it has, are explained in writing before you commit to a project.",
   },
   {
     q: "How much will my domain cost?",
-    a: "You purchase your domain separately, directly from a registrar. My intended domain budget is under $11 per year, and many common extensions fit within that. However, actual prices vary by registrar, extension, taxes, promotions, and — importantly — renewal pricing, so I'll confirm the exact first-year and renewal price with you before you buy anything.",
+    a: "You buy your domain separately, from a registrar of your choice. I plan most projects around common domains priced under $11 a year. Real prices vary with the registrar, the extension, taxes, promotions, and renewal rates, so I confirm the exact first year and renewal price with you before you buy anything.",
   },
   {
     q: "Do I own my domain?",
-    a: "Yes, completely. Your domain is registered in your name under your own account. You control it, and you can take it with you anywhere. I'll walk you through the purchase if you've never done it before — it usually takes just a few minutes.",
+    a: "Yes, completely. Your domain is registered in your name, under your own account. You control it, and you can take it anywhere. If you have never bought one before, I will walk you through it. It usually takes a few minutes.",
   },
   {
-    q: "Can you design an e-commerce website?",
-    a: "Yes. E-commerce design is one of my core services — including product catalogs, product pages, and cart-ready purchase flows. The right setup (platform, payment processing, inventory features) depends on your products and how you sell, so we'll agree on the exact scope and any platform costs before the project starts.",
+    q: "Can you design an ecommerce website?",
+    a: "Yes. Ecommerce design is one of my core services, including product pages, collections, and purchase flows. The right setup depends on your products and how you sell, so we agree on the exact scope and any platform costs before the project starts.",
   },
   {
     q: "How long does a website take to build?",
-    a: "It depends on the scope: a focused landing page is quicker than a full multi-page e-commerce site, and your feedback rounds and content readiness also affect the timeline. Rather than quote a generic number, I'll give you a clear, realistic time estimate for your specific project before we begin — and keep you updated throughout.",
+    a: "It depends on the scope. A focused landing page is quicker than a full ecommerce site, and your feedback speed matters too. Instead of quoting a generic number, I give you a realistic estimate for your specific project before we begin, and I keep you updated as we go.",
   },
   {
     q: "Will my website work on mobile devices?",
-    a: "Yes — mobile-friendly is the default, not an add-on. Every website I design is built to look sharp and work smoothly on phones and tablets, and it's checked across screen sizes before launch. Most of your visitors will arrive on a phone, so this gets treated as a priority, not an afterthought.",
+    a: "Yes. Mobile friendly is the default, not an add on. Every website is built to look sharp on phones and tablets, and it gets checked across screen sizes before launch. Most of your visitors will arrive on a phone, so this gets treated as a priority.",
   },
   {
     q: "Do I need coding knowledge?",
-    a: "No. You don't need to touch a single line of code. I handle the design and technical setup for you, and everything that matters to you — content, images, how inquiries reach you — is explained in plain language. If you ever want to make simple edits yourself, I'll show you how.",
+    a: "No. You never have to touch code. I handle the design and the technical setup, and anything that matters to you, like content and how inquiries reach you, gets explained in plain language. If you want to make simple edits yourself later, I will show you how.",
   },
   {
     q: "Are there any additional costs?",
-    a: "The main cost beyond your project quote is your domain, which you buy separately. Beyond that, any third-party services, paid integrations, platform costs, or ongoing maintenance options are always disclosed upfront, in writing, before you commit. Nothing is ever added to your project without your approval.",
+    a: "Beyond your project quote, the main cost is your domain, which you buy separately. Anything else, like third party services or paid tools, is disclosed upfront in writing before you commit. Nothing is ever added to your project without your approval.",
   },
 ];
 
 /**
- * FAQ accordion — eight honest answers covering costs, domains,
+ * FAQ accordion: eight honest answers covering costs, domains,
  * hosting, process, and capabilities.
  */
 export function Faq() {
@@ -63,7 +64,7 @@ export function Faq() {
                   Honest answers, <span className="text-lavender-600">before you even ask.</span>
                 </>
               }
-              description="Clear explanations about costs, domains, hosting, and the process — so there are no surprises later."
+              description="Clear explanations about costs, domains, hosting, and the process, so there are no surprises later."
             />
             <Reveal delay={0.15}>
               <div className="mt-8 rounded-3xl border border-lavender-300/50 bg-lavender-100/50 p-6">
@@ -72,10 +73,10 @@ export function Faq() {
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-ink-600">
                   Every project is different, and your questions deserve specific answers. Ask me
-                  anything — no pressure, no obligation.
+                  anything. No pressure, no obligation.
                 </p>
                 <a
-                  href="#contact"
+                  href={PAGE_ROUTES.contact}
                   className="mt-4 inline-flex items-center gap-2 rounded-full bg-navy-900 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-navy-800 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-500 focus-visible:ring-offset-2"
                 >
                   Ask Your Question
