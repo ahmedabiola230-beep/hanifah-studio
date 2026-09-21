@@ -11,11 +11,10 @@ export const SITE = {
   url: "https://hanifahstudio.com", // TODO: replace with your real domain
   founder: "Hanifah",
 
-  // TODO: replace with your real email address
-  email: "hello@hanifahstudio.com",
+  // Contact details
+  email: "ahmedabiola230@gmail.com",
 
-  // TODO: replace with your real WhatsApp number (international format, digits only)
-  whatsappUrl: "https://wa.me/1234567890",
+  whatsappUrl: "https://wa.me/2349162080741",
   whatsappLabel: "Chat on WhatsApp",
 
   // TODO: replace "#" with your real social profile URLs

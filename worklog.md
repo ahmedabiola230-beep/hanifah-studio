@@ -81,3 +81,18 @@ Work Log:
 Stage Summary:
 - Site photo replaced everywhere with the new high resolution portrait
 - To update again: overwrite public/hanifah-photo.png with a 4:5 crop
+
+---
+Task ID: 5
+Agent: Main agent (Super Z)
+Task: Update real contact details (Gmail + WhatsApp) and re-apply the new photo
+
+Work Log:
+- Re-uploaded photo has identical filename and bytes output as the live asset (md5 checked, regenerated via scripts/swap_photo.py, output identical 708013 bytes) so the photo is already current on About, home, and contact
+- Updated src/lib/site.ts: email hello@hanifahstudio.com to ahmedabiola230@gmail.com, WhatsApp placeholder wa.me/1234567890 to wa.me/2349162080741; removed the now resolved TODO comments
+- All email and WhatsApp touchpoints flow through SITE: contact page direct channels, footer Get in Touch, inquiry form aside, and the Privacy Policy and Terms of Service contact blocks
+- Verified via agent-browser on the contact page: links resolve to mailto:ahmedabiola230@gmail.com and https://wa.me/2349162080741; footer and contact card render the Gmail address; no page errors; bun run lint clean
+
+Stage Summary:
+- Real email and WhatsApp number are live across the whole site
+- Remaining placeholders: social profile URLs in src/lib/site.ts socials and the site domain for SEO metadata
