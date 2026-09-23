@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, MonitorSmartphone, ShieldCheck } from "lucide-react";
+import { ArrowRight, MonitorSmartphone, ShieldCheck } from "lucide-react";
 import { Reveal } from "./reveal";
 import { BrowserFrame, PhoneFrame, MockVeronaDesktop, MockVeronaMobile } from "./mockups";
 import { PAGE_ROUTES } from "@/lib/site";
@@ -31,31 +31,22 @@ export function Hero() {
         {/* Copy */}
         <div className="max-w-2xl">
           <Reveal>
-            <p className="inline-flex items-center gap-2 rounded-full border border-lavender-300/60 bg-white/70 py-1.5 pl-2 pr-4 text-xs font-semibold text-navy-800 shadow-soft backdrop-blur">
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lavender-200">
-                <Sparkles className="h-3.5 w-3.5 text-lavender-700" aria-hidden="true" />
-              </span>
-              AI Assisted Website Design Studio
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.08}>
             <h1
               id="hero-heading"
-              className="mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-navy-900 text-balance sm:text-5xl lg:text-[3.4rem]"
+              className="font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-navy-900 text-balance sm:text-5xl lg:text-[3.4rem]"
             >
-              Your business deserves a website.{" "}
+              Let&rsquo;s get your business website online,{" "}
               <span className="box-decoration-clone bg-lavender-300/50 px-1.5 [text-box-decoration-break:clone]">
-                Not another monthly bill.
+                without the extra hosting bill.
               </span>
             </h1>
           </Reveal>
 
-          <Reveal delay={0.16}>
+          <Reveal delay={0.08}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-600 text-pretty">
-              Get a professional, modern website for your business, designed with AI. Enjoy a
-              simpler hosting arrangement without a separate hosting fee, while paying for your
-              domain separately.
+              You do not pay for hosting. Your website runs under the arrangement we agree on,
+              and the only extra cost is your domain name, which you buy yourself for around
+              $11 per year.
             </p>
           </Reveal>
 

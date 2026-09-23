@@ -96,3 +96,19 @@ Work Log:
 Stage Summary:
 - Real email and WhatsApp number are live across the whole site
 - Remaining placeholders: social profile URLs in src/lib/site.ts socials and the site domain for SEO metadata
+
+---
+Task ID: 6
+Agent: Main agent (Super Z)
+Task: Hero copy changes: remove eyebrow badge, new headline and clearer hosting and domain cost message
+
+Work Log:
+- Removed the AI Assisted Website Design Studio eyebrow pill from the hero and dropped the now unused Sparkles import
+- Headline changed to Lets get your business website online, without the extra hosting bill with the lavender highlight kept on the second half
+- Subheadline rewritten for clarity and honesty: You do not pay for hosting. Your website runs under the arrangement we agree on, and the only extra cost is your domain name, which you buy yourself for around $11 per year.
+- OpenGraph description in layout.tsx aligned with the new headline and cost message
+- QA via agent-browser (1440px and 390px): hero renders cleanly, mockup chip and footnote intact, no page errors, no horizontal overflow; bun run lint clean
+
+Stage Summary:
+- Hero now leads with the new headline and a plain language cost promise: no hosting payment, domain around $11 per year
+- Honest disclosure preserved: floating chip and footnote about agreed hosting terms remain

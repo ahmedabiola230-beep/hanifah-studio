@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hanifah Studio | Website Design for Small Businesses",
     description:
-      "Your business deserves a website. Not another monthly bill. Professional websites designed with AI, honest terms, and no separate hosting bill.",
+      "Let's get your business website online, without the extra hosting bill. Professional websites designed with AI. You do not pay for hosting, and your domain costs around $11 per year.",
     url: SITE.url,
     siteName: "Hanifah Studio",
     locale: "en_US",
