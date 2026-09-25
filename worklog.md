@@ -150,3 +150,20 @@ Work Log:
 Stage Summary:
 - Portfolio now holds 12 live projects, each with View Live Website (new tab) and Discuss a Similar Project
 - To add future projects: fetch image, optimize to webp in public/portfolio, add one entry to projects.ts, and update the industry count wording in portfolio.tsx and pages/portfolio-page.tsx
+
+---
+Task ID: 9
+Agent: Main agent (Super Z)
+Task: Hero cleanup: show a real portfolio project instead of the sample mockup, remove the sample design footnote
+
+Work Log:
+- Replaced the layered Verona Home device mockup (CSS built sample) with the Cerulea Pools portfolio image (the first real project), presented as a rounded framed card with the lavender glow, ring, shadow, and the float animation kept
+- Added next/image with blur placeholder and priority (hero is the LCP element)
+- Removed the footnote: Sample design shown. Hosting terms are always agreed and explained in writing before any project starts.
+- Updated the floating hosting chip second line from Under the agreed arrangement* to Under the arrangement we agree on, removing the dangling asterisk
+- Deleted src/components/hanifah/mockups.tsx (BrowserFrame, PhoneFrame, Verona mocks) as the hero was its only consumer; ~215 lines of dead code removed
+- QA via agent-browser: desktop 1440 hero shows the framed project image with chip and no footnote, mobile 390 no horizontal overflow, footnote text confirmed absent, FAQ accordion clicked and opens without errors, fresh load shows zero page errors; bun run lint clean, dev.log clean
+
+Stage Summary:
+- Hero now leads with a real project visual, so the sample design disclosure is no longer needed anywhere
+- mockups.tsx fully removed; the site no longer ships any fake sample UI

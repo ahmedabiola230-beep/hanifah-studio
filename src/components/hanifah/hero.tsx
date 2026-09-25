@@ -1,11 +1,12 @@
+import Image from "next/image";
 import { ArrowRight, MonitorSmartphone, ShieldCheck } from "lucide-react";
 import { Reveal } from "./reveal";
-import { BrowserFrame, PhoneFrame, MockVeronaDesktop, MockVeronaMobile } from "./mockups";
 import { PAGE_ROUTES } from "@/lib/site";
+import heroPreview from "../../../public/portfolio/cleaning.webp";
 
 /**
- * Hero: benefit-led headline, supporting copy, two CTAs and a layered
- * desktop + mobile mockup showing a premium business website.
+ * Hero: benefit-led headline, supporting copy, two CTAs and a real
+ * portfolio project shown as the visual, with the hosting promise chip.
  */
 export function Hero() {
   return (
@@ -85,24 +86,26 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Visual: layered device mockup */}
+        {/* Visual: a real project from the portfolio */}
         <Reveal delay={0.2} direction="none" className="relative">
-          <div className="relative mx-auto max-w-[560px] pb-24 sm:pb-20">
+          <div className="relative mx-auto max-w-[560px]">
             {/* Glow */}
             <div
               aria-hidden="true"
               className="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-lavender-300/40 via-lavender-200/20 to-transparent blur-2xl"
             />
 
-            {/* Desktop mockup */}
+            {/* Project preview */}
             <div className="relative animate-float-slow">
-              <BrowserFrame
-                url="verona-home.com"
-                label="Preview of a premium business website designed by Hanifah Studio, shown in a desktop browser"
-                className="relative z-10"
-              >
-                <MockVeronaDesktop />
-              </BrowserFrame>
+              <div className="relative z-10 overflow-hidden rounded-3xl shadow-lift ring-1 ring-navy-900/10">
+                <Image
+                  src={heroPreview}
+                  alt="Preview of the Cerulea Pools website, designed and built by Hanifah Studio, shown on desktop, tablet, and mobile"
+                  placeholder="blur"
+                  priority
+                  className="h-auto w-full"
+                />
+              </div>
 
               {/* Floating chip: hosting */}
               <div className="absolute -bottom-5 -left-3 z-20 hidden animate-float items-center gap-2 rounded-2xl bg-white/95 px-3.5 py-2.5 shadow-lift ring-1 ring-navy-900/8 backdrop-blur sm:flex lg:-left-8">
@@ -112,26 +115,12 @@ export function Hero() {
                 <span className="text-xs font-semibold leading-tight text-navy-900">
                   No separate hosting fee
                   <span className="block text-[10px] font-medium text-ink-400">
-                    Under the agreed arrangement*
+                    Under the arrangement we agree on
                   </span>
                 </span>
               </div>
             </div>
-
-            {/* Phone mockup overlapping bottom-right */}
-            <PhoneFrame
-              label="Mobile version of the same website, shown on a smartphone"
-              className="absolute -bottom-2 -right-2 z-20 w-[104px] animate-float sm:-right-6 sm:w-[128px]"
-            >
-              <MockVeronaMobile />
-            </PhoneFrame>
           </div>
-
-          {/* Footnote */}
-          <p className="relative mx-auto max-w-[560px] pr-2 text-[11px] leading-snug text-ink-400 sm:pr-24">
-            *Sample design shown. Hosting terms are always agreed and explained in writing before
-            any project starts.
-          </p>
         </Reveal>
       </div>
     </section>
