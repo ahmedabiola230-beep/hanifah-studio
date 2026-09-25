@@ -134,3 +134,19 @@ Stage Summary:
 - Portfolio now shows 10 real past projects with live links and two conversion paths per card
 - Card data lives in src/components/hanifah/projects.ts; to add a project, drop an optimized webp into public/portfolio and add one entry
 - Honesty guardrails updated everywhere: no more concept labels; terms page states brand names in projects are illustrative and no results are implied
+
+---
+Task ID: 8
+Agent: Main agent (Super Z)
+Task: Add 2 new past projects to the portfolio (real estate + beauty skincare)
+
+Work Log:
+- Scraped the 2 new sites (scripts/scrape_projects.py): Haven Crest Realty, an independent real estate brokerage in Austin, and Amara Beauty & Spa, a salon and spa in Lekki Phase 1, Lagos
+- Downloaded the 2 Cloudinary images (scripts/fetch_portfolio2.py), converted 933x700 PNGs to 55-59KB webp (scripts/optimize_portfolio.py), removed the dead PNGs
+- Added Haven Crest Realty and Amara Beauty & Spa entries to projects.ts with real brand names, industry chips, descriptions written from each site's actual content, live URLs, and distinct chip colors (teal for the brokerage, plum for the salon)
+- Bumped copy counts from ten to twelve industries in portfolio.tsx and the portfolio page hero
+- QA via agent-browser: 12 cards on the portfolio page, last two links resolve to realestatehomeconstruction.space-z.ai and beautyskincare.space-z.ai, both new cards render with the two buttons, no console errors, no horizontal overflow at 390px; bun run lint clean, dev.log clean
+
+Stage Summary:
+- Portfolio now holds 12 live projects, each with View Live Website (new tab) and Discuss a Similar Project
+- To add future projects: fetch image, optimize to webp in public/portfolio, add one entry to projects.ts, and update the industry count wording in portfolio.tsx and pages/portfolio-page.tsx

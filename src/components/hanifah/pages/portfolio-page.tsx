@@ -16,7 +16,7 @@ export function PortfolioPage() {
             <span className="text-lavender-600">make businesses stand out.</span>
           </>
         }
-        description="Real past projects across ten different industries. Every card links to the live website in a new tab, so you can see exactly how the work holds up."
+        description="Real past projects across twelve different industries. Every card links to the live website in a new tab, so you can see exactly how the work holds up."
       />
       <Portfolio showHeading={false} />
     </>

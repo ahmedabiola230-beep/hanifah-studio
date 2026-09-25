@@ -7,9 +7,11 @@ import dentistImage from "../../../public/portfolio/dentist.webp";
 import fashionImage from "../../../public/portfolio/fashion.webp";
 import furnitureImage from "../../../public/portfolio/furniture.webp";
 import motorcycleImage from "../../../public/portfolio/motorcycle.webp";
+import realestateImage from "../../../public/portfolio/realestate.webp";
 import restaurantImage from "../../../public/portfolio/restaurant.webp";
 import salonImage from "../../../public/portfolio/salon.webp";
 import skincareImage from "../../../public/portfolio/skincare.webp";
+import skincare2Image from "../../../public/portfolio/skincare2.webp";
 
 export type PortfolioProject = {
   id: string;
@@ -154,5 +156,29 @@ export const PROJECTS: PortfolioProject[] = [
     alt: "Multi device preview of the Cinder Ridge MX Park website, a motocross park in California",
     accentClass: "bg-[#efe0d1] text-[#a34e0e]",
     ringClass: "hover:ring-[#dcba94]",
+  },
+  {
+    id: "haven-crest",
+    name: "Haven Crest Realty",
+    industry: "Real Estate Brokerage",
+    tagline:
+      "A warm, trustworthy website for an independent brokerage in Austin, with featured properties, recent sales, and a team that answers the phone.",
+    url: "https://realestatehomeconstruction.space-z.ai/",
+    image: realestateImage,
+    alt: "Multi device preview of the Haven Crest Realty website, a real estate brokerage in Austin, Texas",
+    accentClass: "bg-[#d9edec] text-[#0f6a68]",
+    ringClass: "hover:ring-[#93d3d0]",
+  },
+  {
+    id: "amara",
+    name: "Amara Beauty & Spa",
+    industry: "Beauty Salon & Spa",
+    tagline:
+      "A calm, elegant website for a salon and spa in Lekki, Lagos, covering hair, nails, facials, massage, and makeup, with honest prices throughout.",
+    url: "https://beautyskincare.space-z.ai/",
+    image: skincare2Image,
+    alt: "Multi device preview of the Amara Beauty and Spa website, a beauty salon and spa in Lekki, Lagos",
+    accentClass: "bg-[#efe3f3] text-[#7d4494]",
+    ringClass: "hover:ring-[#d5b3e0]",
   },
 ];

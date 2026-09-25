@@ -6,16 +6,8 @@ import re
 import urllib.request
 
 SITES = {
-    "cleaning": "https://cerulea.space-z.ai/",
-    "construction": "https://stonemark.space-z.ai/",
-    "restaurant": "https://resturantember.space-z.ai/",
-    "dentist": "https://dentisthealth.space-z.ai/",
-    "salon": "https://hairandsalon.space-z.ai/",
-    "fashion": "https://fashion.space-z.ai/",
-    "skincare": "https://serein.space-z.ai/",
-    "accounting": "https://ledgerwellaccounting.space-z.ai/",
-    "furniture": "https://furniturekitchen.space-z.ai/",
-    "motorcycle": "https://mortocycle.space-z.ai/",
+    "realestate": "https://realestatehomeconstruction.space-z.ai/",
+    "skincare2": "https://beautyskincare.space-z.ai/",
 }
 
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"}

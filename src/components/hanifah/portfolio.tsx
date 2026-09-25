@@ -22,7 +22,7 @@ export function Portfolio({ showHeading = true }: { showHeading?: boolean }) {
                 Websites designed to <span className="text-lavender-600">make businesses stand out.</span>
               </>
             }
-            description="Ten industries, ten looks, one standard. Each project below is a website I designed and built, and each one is live right now."
+            description="Twelve industries, twelve looks, one standard. Each project below is a website I designed and built, and each one is live right now."
           />
         )}
 
