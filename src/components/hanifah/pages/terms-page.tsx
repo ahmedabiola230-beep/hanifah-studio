@@ -50,7 +50,7 @@ export function TermsPage() {
         {
           heading: "Portfolio projects",
           body: [
-            "Projects shown on the portfolio page are concept projects, created to demonstrate design style. They are not client work, and no client relationships, results, or testimonials are implied.",
+            "Projects shown on the portfolio page are websites designed and built by Hanifah Studio, and the links open the live websites. Brand names and business details inside each project are illustrative, so portfolio entries do not imply client endorsements, results, or testimonials.",
           ],
         },
         {

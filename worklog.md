@@ -112,3 +112,25 @@ Work Log:
 Stage Summary:
 - Hero now leads with the new headline and a plain language cost promise: no hosting payment, domain around $11 per year
 - Honest disclosure preserved: floating chip and footnote about agreed hosting terms remain
+
+---
+Task ID: 7
+Agent: Main agent (Super Z)
+Task: Replace the 3 concept projects with 10 real past projects, each with two buttons: View Live Website (new tab) and Discuss a Similar Project
+
+Work Log:
+- Scraped all 10 project websites (scripts/scrape_projects.py) to identify the real brand behind each: Cerulea Pools (Austin pools), Stonemark Build Group (Denver construction), Ember & Oak (Portland restaurant), Cedar Health Clinic (family healthcare), Olisse (Charleston salon), Solemarch (Lagos footwear), Serein Spa & Wellness (Lagos spa), Ledgerwell (Ohio accounting), Woodora Kitchens (modular kitchens), Cinder Ridge MX Park (California motocross)
+- Downloaded the 10 Cloudinary images (scripts/fetch_portfolio.py), converted 933x700 PNGs to optimized webp at 29-116KB each (scripts/optimize_portfolio.py), resized the oversized salon image to match, saved to public/portfolio/
+- Rewrote projects.tsx as projects.ts: 10 PortfolioProject entries with real brand names, industry chips, brief descriptions written from each site's actual content (no hyphens, natural tone), live URLs, static webp imports with blur placeholders, and per brand accent colors
+- Built project-card.tsx shared card: project image with hover zoom, Live Project badge with pulsing green dot, industry chip, brand title, short description, and the two requested actions. View Live Website opens the live site in a new tab (target _blank, rel noopener); Discuss a Similar Project routes to the contact page. Buttons stack full width on mobile and sit side by side from sm up
+- Rewrote portfolio.tsx: no more detail dialogs, uniform 2 column grid for the 10 projects, closing CTA panel (plan, timeline, quote, no pressure) linking to contact
+- Rewrote portfolio-teaser.tsx: home page now shows the first 6 projects with the same two button cards plus a View the Full Portfolio link
+- Updated portfolio-page.tsx hero copy and the Terms of Service portfolio clause: entries are websites designed and built by Hanifah Studio with live links, brand names inside each project are illustrative, no client endorsements or guaranteed results implied
+- Deleted the now unused MockLumiere, MockNorthstar, MockElara, and Bottle from mockups.tsx (hero Verona mocks kept); removed dead PNG sources
+- Fixed a module not found error: webp imports from src/components/hanifah need three levels up to reach public/, not two
+- QA via agent-browser: home teaser 6 cards + live hrefs verified, portfolio page 10 cards with all 10 correct target _blank URLs, clicking View Live Website opened Cerulea Pools in a new tab while the site stayed open, closing CTA renders, no console errors, no horizontal overflow on mobile 390, buttons single line full width on mobile, hero copy from task 6 intact, terms clause live; bun run lint clean, dev.log clean
+
+Stage Summary:
+- Portfolio now shows 10 real past projects with live links and two conversion paths per card
+- Card data lives in src/components/hanifah/projects.ts; to add a project, drop an optimized webp into public/portfolio and add one entry
+- Honesty guardrails updated everywhere: no more concept labels; terms page states brand names in projects are illustrative and no results are implied

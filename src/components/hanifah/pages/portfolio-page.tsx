@@ -2,8 +2,8 @@ import { PageHero } from "../page-hero";
 import { Portfolio } from "../portfolio";
 
 /**
- * Portfolio page: the three concept projects, each with an openable
- * detail view explaining the design decisions behind it.
+ * Portfolio page: every past project, each with a link to the live
+ * website and a direct way to start a conversation about similar work.
  */
 export function PortfolioPage() {
   return (
@@ -16,7 +16,7 @@ export function PortfolioPage() {
             <span className="text-lavender-600">make businesses stand out.</span>
           </>
         }
-        description="A look at my design style across three industries. Each project was planned, structured, and styled from scratch. Open any of them to see the thinking behind it."
+        description="Real past projects across ten different industries. Every card links to the live website in a new tab, so you can see exactly how the work holds up."
       />
       <Portfolio showHeading={false} />
     </>
