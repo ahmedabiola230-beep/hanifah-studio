@@ -16,13 +16,6 @@ export const SITE = {
 
   whatsappUrl: "https://wa.me/2349162080741",
   whatsappLabel: "Chat on WhatsApp",
-
-  // TODO: replace "#" with your real social profile URLs
-  socials: {
-    instagram: "#",
-    linkedin: "#",
-    x: "#",
-  },
 } as const;
 
 /** Page routes used across the site. See src/lib/router.ts */

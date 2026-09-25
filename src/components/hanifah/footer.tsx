@@ -1,13 +1,6 @@
-import { Instagram, Linkedin, Twitter, Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { Logo } from "./logo";
 import { NAV_LINKS, PAGE_ROUTES, SERVICE_OPTIONS, SITE } from "@/lib/site";
-
-const SOCIALS = [
-  // TODO(Hanifah): replace the "#" hrefs in src/lib/site.ts with your real profiles
-  { name: "Instagram", href: SITE.socials.instagram, icon: Instagram },
-  { name: "LinkedIn", href: SITE.socials.linkedin, icon: Linkedin },
-  { name: "X (Twitter)", href: SITE.socials.x, icon: Twitter },
-];
 
 /**
  * Site footer: brand summary, page navigation, services, contact
@@ -27,21 +20,6 @@ export function Footer() {
               Professional websites, honest terms, and no separate hosting bill
               under the arrangement we agree on.
             </p>
-            {/* Social placeholders */}
-            <div className="mt-6 flex items-center gap-3">
-              {SOCIALS.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${social.name} (link placeholder, add your profile URL)`}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 transition-all hover:-translate-y-0.5 hover:bg-lavender-500/20 hover:ring-lavender-400/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400"
-                >
-                  <social.icon className="h-4.5 w-4.5 text-lavender-200" aria-hidden="true" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Pages */}

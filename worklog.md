@@ -191,3 +191,17 @@ Stage Summary:
 - The studio needs zero setup: no accounts, no keys, no activation; leads arrive in the WhatsApp app or web depending on the visitor device
 - Email delivery to Gmail via a form service was fully explored and is not viable (FormSubmit blocked by Cloudflare both server and browser side); if Gmail copies are ever wanted, Web3Forms with a studio created access key is the fallback path
 - To read the stored backup rows: bun scripts/cleanup_test_inquiries.ts shows the query pattern; a small read script can list them any time
+
+---
+Task ID: 11
+Agent: Main agent (Super Z)
+Task: Remove the Instagram, LinkedIn, and Twitter logos from the footer
+
+Work Log:
+- Removed the SOCIALS icon row (three placeholder links with aria labels) from footer.tsx, along with the Instagram, Linkedin, and Twitter lucide imports and the SOCIALS constant
+- Removed the now unused socials object and its TODO comment from src/lib/site.ts after confirming nothing else referenced it
+- Verified via agent-browser: footer renders the brand summary directly under the logo, 0 social icon anchors remain in the footer, mobile 390px has no horizontal overflow, zero page errors; bun run lint clean
+
+Stage Summary:
+- Footer now carries only real contact channels: Gmail and WhatsApp links plus page, service, and legal navigation
+- The social placeholders in site.ts are gone, so the only remaining site wide placeholder is the real domain for SEO metadata
