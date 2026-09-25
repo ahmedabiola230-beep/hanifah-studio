@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Loader2, Send, CheckCircle2, AlertCircle, RotateCcw } from "lucide-react";
+import { Loader2, Send, CheckCircle2, AlertCircle, RotateCcw, MessageCircle, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -47,6 +47,37 @@ type InquiryFormValues = z.infer<typeof inquiryFormSchema>;
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
+/**
+ * The inquiry text that travels with the visitor to WhatsApp, already
+ * addressed to the studio number so one tap on send delivers it.
+ */
+function buildInquiryMessage(values: InquiryFormValues) {
+  const serviceLabel =
+    SERVICE_OPTIONS.find((option) => option.value === values.service)?.label ?? values.service;
+
+  return [
+    "Hello Hanifah, I just filled the inquiry form on your website.",
+    "",
+    `Name: ${values.name}`,
+    `Email: ${values.email}`,
+    `Business: ${values.businessName}`,
+    `Current website: ${values.website ? values.website : "Not provided"}`,
+    `Service needed: ${serviceLabel}`,
+    "",
+    "About the project:",
+    values.projectDescription,
+  ].join("\n");
+}
+
+function buildWhatsAppUrl(values: InquiryFormValues) {
+  return `${SITE.whatsappUrl}?text=${encodeURIComponent(buildInquiryMessage(values))}`;
+}
+
+function buildMailtoUrl(values: InquiryFormValues) {
+  const subject = `Website inquiry: ${values.businessName}`;
+  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildInquiryMessage(values))}`;
+}
+
 const inputStyles =
   "h-12 rounded-xl border-navy-900/12 bg-white text-[0.95rem] shadow-none transition-colors focus-visible:ring-2 focus-visible:ring-lavender-400 focus-visible:border-lavender-400 aria-[invalid=true]:border-red-400 aria-[invalid=true]:ring-red-200";
 
@@ -58,6 +89,7 @@ const inputStyles =
 export function InquiryForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [serverMessage, setServerMessage] = useState<string | null>(null);
+  const [lastValues, setLastValues] = useState<InquiryFormValues | null>(null);
 
   const {
     register,
@@ -97,6 +129,12 @@ export function InquiryForm() {
         return;
       }
 
+      // The inquiry is stored. Now hand the visitor to WhatsApp with the
+      // full inquiry typed out to the studio number, so the message lands
+      // where the studio actually reads it. If the browser blocks the
+      // automatic open, the success panel carries the same link.
+      setLastValues(values);
+      window.open(buildWhatsAppUrl(values), "_blank", "noopener,noreferrer");
       setStatus("success");
     } catch {
       setStatus("error");
@@ -107,7 +145,7 @@ export function InquiryForm() {
   };
 
   /* ── Success state ─────────────────────────────────────────── */
-  if (status === "success") {
+  if (status === "success" && lastValues) {
     return (
       <div
         role="status"
@@ -120,15 +158,32 @@ export function InquiryForm() {
           Thank you, your inquiry was received.
         </h3>
         <p className="mt-3 max-w-md text-[0.95rem] leading-relaxed text-ink-500">
-          Your project details are with Hanifah Studio now. You&rsquo;ll get a personal reply at
-          the email address you provided, along with any follow up questions and a clear, no
-          obligation quote.
+          Your details are with Hanifah Studio now. To get the fastest reply, WhatsApp should
+          have opened with your message already typed out. Just press send and it lands
+          directly in my WhatsApp.
         </p>
+        <a
+          href={buildWhatsAppUrl(lastValues)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-7 inline-flex h-13 items-center justify-center gap-2.5 rounded-full bg-emerald-600 px-8 text-base font-semibold text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+        >
+          <MessageCircle className="h-5 w-5" aria-hidden="true" />
+          Open WhatsApp and press send
+        </a>
+        <a
+          href={buildMailtoUrl(lastValues)}
+          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-navy-900 underline underline-offset-4 hover:text-lavender-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 focus-visible:ring-offset-2 rounded-sm"
+        >
+          <Mail className="h-4 w-4 text-lavender-600" aria-hidden="true" />
+          Prefer email? Send the same details by email
+        </a>
         <Button
           type="button"
           variant="outline"
           onClick={() => {
             reset();
+            setLastValues(null);
             setStatus("idle");
           }}
           className="mt-7 h-11 rounded-full border-navy-900/15 px-6 font-semibold text-navy-900 hover:bg-lavender-100 hover:text-navy-900"
@@ -352,7 +407,8 @@ export function InquiryForm() {
         </Button>
         <p className="max-w-xs text-xs leading-relaxed text-ink-400">
           Submitting shares your name, email, business details, and project description with
-          Hanifah Studio, used only to reply to your inquiry.{" "}
+          Hanifah Studio, used only to reply to your inquiry. WhatsApp then opens with your
+          message ready to send.{" "}
           <a
             href={PAGE_ROUTES.privacy}
             className="font-medium underline underline-offset-2 hover:text-navy-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender-400 rounded-sm"

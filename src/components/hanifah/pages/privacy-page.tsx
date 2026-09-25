@@ -21,7 +21,7 @@ export function PrivacyPage() {
         {
           heading: "How your details are used",
           body: [
-            "One purpose only: to reply to your inquiry, answer your questions, and prepare the quote you asked for. Your information is never sold, rented, or shared with third parties for their own marketing.",
+            "One purpose only: to reply to your inquiry, answer your questions, and prepare the quote you asked for. A copy of each inquiry is kept in the studio's records, and your message is also prepared in WhatsApp so the studio receives it and replies quickly. Your information is never sold, rented, or shared with third parties for their own marketing.",
           ],
         },
         {
