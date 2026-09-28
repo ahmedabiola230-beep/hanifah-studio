@@ -23,35 +23,39 @@ const inquiryApiSchema = z.object({
 /**
  * POST /api/inquiry
  *
- * Receives an inquiry from the contact form and stores it in the studio
- * database. A success response is returned ONLY after the row is actually
- * persisted — the UI never claims a message was "sent" without this
- * confirmation.
+ * Receives an inquiry from the contact form, validates it, and keeps a
+ * backup record in the studio database when one is available. The real
+ * delivery path is the WhatsApp handoff in the form, which opens with the
+ * full inquiry typed out to the studio number, so the database copy is
+ * best effort: on hosts without a writable database (for example Vercel's
+ * serverless filesystem) the inquiry is accepted anyway and the visitor
+ * continues to WhatsApp without interruption.
  */
 export async function POST(request: Request) {
+  let body: unknown;
   try {
-    let body: unknown;
-    try {
-      body = await request.json();
-    } catch {
-      return NextResponse.json(
-        { ok: false, message: "Invalid request format." },
-        { status: 400 }
-      );
-    }
+    body = await request.json();
+  } catch {
+    return NextResponse.json(
+      { ok: false, message: "Invalid request format." },
+      { status: 400 }
+    );
+  }
 
-    const parsed = inquiryApiSchema.safeParse(body);
-    if (!parsed.success) {
-      const firstError =
-        parsed.error.issues[0]?.message ?? "Please review the highlighted fields and try again.";
-      return NextResponse.json(
-        { ok: false, message: firstError, issues: parsed.error.flatten().fieldErrors },
-        { status: 400 }
-      );
-    }
+  const parsed = inquiryApiSchema.safeParse(body);
+  if (!parsed.success) {
+    const firstError =
+      parsed.error.issues[0]?.message ?? "Please review the highlighted fields and try again.";
+    return NextResponse.json(
+      { ok: false, message: firstError, issues: parsed.error.flatten().fieldErrors },
+      { status: 400 }
+    );
+  }
 
-    const data = parsed.data;
+  const data = parsed.data;
 
+  let id: string | null = null;
+  try {
     const inquiry = await db.inquiry.create({
       data: {
         name: data.name,
@@ -63,17 +67,12 @@ export async function POST(request: Request) {
       },
       select: { id: true },
     });
-
-    return NextResponse.json({ ok: true, id: inquiry.id }, { status: 201 });
+    id = inquiry.id;
   } catch (error) {
-    console.error("[/api/inquiry] Failed to store inquiry:", error);
-    return NextResponse.json(
-      {
-        ok: false,
-        message:
-          "The inquiry could not be stored due to a server issue. Please try again shortly.",
-      },
-      { status: 500 }
-    );
+    // No writable database on this host. WhatsApp handoff remains the
+    // delivery path, so accept the inquiry and let the form continue.
+    console.error("[/api/inquiry] Database copy skipped (no writable storage):", error);
   }
+
+  return NextResponse.json({ ok: true, id, stored: id !== null }, { status: 201 });
 }

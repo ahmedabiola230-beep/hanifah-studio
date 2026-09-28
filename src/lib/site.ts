@@ -1,14 +1,14 @@
 /**
  * Central place for brand content and contact details.
- *
- * TODO(Hanifah): replace the placeholder values below with your real
- * contact details before going live. They are used by the header,
- * footer, contact page, and privacy pages.
+ * Used by the header, footer, contact page, and privacy pages.
  */
 export const SITE = {
   name: "Hanifah Studio",
   tagline: "Website Design Studio",
-  url: "https://hanifahstudio.com", // TODO: replace with your real domain
+  // Set NEXT_PUBLIC_SITE_URL in your hosting dashboard (for example on
+  // Vercel) once the real domain is known; it feeds SEO metadata and link
+  // previews. Falls back to the studio domain placeholder.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://hanifahstudio.com",
   founder: "Hanifah",
 
   // Contact details

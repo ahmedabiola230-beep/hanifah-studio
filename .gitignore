@@ -52,3 +52,19 @@ prompt
 server.log
 # Skills directory
 /skills/
+# sandbox and agent working files (not part of the website)
+worklog.md
+agent-ctx/
+scripts/
+.zscripts/
+tests/
+examples/
+mini-services/
+download/
+upload/
+db/
+Caddyfile
+*.png
+!public/**/*.png
+.claude/
+.z-ai-config/
